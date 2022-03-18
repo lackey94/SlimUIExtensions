@@ -22,4 +22,5 @@ Attach Rewired UI Action Monitor to the CursorController root object
 Attach Rewired Input Provider to an Input System Profider Object that is sub to the root CursorControl object.
 
 The CursorCotnrol object should look like this:
+
 ![image](https://user-images.githubusercontent.com/22646751/156557353-d5c8ab9d-5a67-4a35-9228-80f7c66bdaf1.png)
