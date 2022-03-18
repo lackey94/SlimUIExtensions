@@ -1,26 +1,49 @@
 # SlimUIExtensions
 
-You are free to use this however you like, this was roughly written so I don't guarantee it to work for your project, there might be bugs (more than likely will) however, I don't have the time to fully flesh this out.
+This Github Repo extends an existing Unity Asset, please purchase here: https://assetstore.unity.com/packages/tools/gui/cursor-controller-pro-161628
+This Github Repo extends the existing Unity Asset to work in conjunction with Rewired, however, it can easily be modiifed to work with other input systems or with Unity's default input system.  I will not help you with converting your code to work with other systems.  If you encounter a bug, please let me know.
 
-I'm just leaving this open for any other person who uses SlimUI https://assetstore.unity.com/packages/tools/gui/cursor-controller-pro-161628 and need it to be expanded such that you can interact with sliders and scrollbars in Unity while using the old Unity Input System.
+This asset extension is free to use as long as credit is given per the provided License agreement.
 
-![image](https://user-images.githubusercontent.com/22646751/156556824-66fdf60c-bfc5-4671-b084-dd2c4c243bd7.png)
+Now that formalities are done with, here is how to use the extension.
 
-Attach Scrollblock to Viewport and Scrollbar Receiver to Scrollbar, these are instanced items that will auto reference Action Monitor.  Be sure to still reference one another's scripts in the inspector or else it won't work.
+--------------------------------
+1) Download and add all of the scripts except for RewiredInputProvider.cs into Assets/SlimUI/CursorControllerPro/Scripts/
+2) Place RewiredInputProvider.cs into Assets/SlimUI/CursorControllerPro/Scripts/InputSystem/InputProviders/
+3) Create or take from the Demo scene a CursorController gameobject setup like the following:
 
-![image](https://user-images.githubusercontent.com/22646751/156557010-3f224275-993e-4949-9c79-856ed39c79b8.png)
+![image](https://user-images.githubusercontent.com/22646751/158924203-6d33a388-56c0-40d8-8f3b-07d8f46f5e68.png)
 
+4) On the root gameobject, under CursorController.cs in the Inspector, with the gameobject selected, add RewiredUIActionMonitor.cs
 
-SliderReceiver is attached to Slider Object with the Slider Script.  It will auto reference but just to save a FindObjectOfType<> call, just reference it in the inspector.
+![image](https://user-images.githubusercontent.com/22646751/158924272-b17a52bc-bb56-42f9-a820-4f533519eaaa.png)
 
-![image](https://user-images.githubusercontent.com/22646751/156557157-d73ec027-7d27-435b-bc05-6e98846a2d42.png)
+5) Under CursorController root gameobject, add the following scripts to the empty gameobject "InputSystemProvider": "RewiredEventSystem.cs", "RewiredStandaloneInputModule.cs" - These two are provided by Rewired and are not found within this Repo.
+6) To the same gameobject, add "RewiredInputProvider.cs", your InputSystemProvider gameobject should now look like this:
 
-Attach Rewired UI Action Monitor to the CursorController root object
+![image](https://user-images.githubusercontent.com/22646751/158924467-b6010180-d82a-4396-a93f-16b4d86d2436.png)
 
-![image](https://user-images.githubusercontent.com/22646751/156557302-c535b52b-d9ef-40d6-837e-7550994206b0.png)
+7) Ensure your Cursor Camera is setup just like the following:
 
-Attach Rewired Input Provider to an Input System Profider Object that is sub to the root CursorControl object.
+![image](https://user-images.githubusercontent.com/22646751/158924529-ee8fe1c5-5f84-499e-99ce-a501d1d72371.png)
 
-The CursorCotnrol object should look like this:
+Scroll Bars (Not Dropdown Menus):
+1) Attach to the Viewport of the Scroll View, "ScrollbarReceiverExtended.cs"
+2) Attach to Scrollbar Vertical "ScrollbarReceiver.cs"
+3) Assign the inspector objects
+4) Do not mark "Is Scrollbar Instanced" unless the scrollbar is an instanced scrollbar, meaning that the scrollbar will be destroyed while it can be hovered.  This option is designed for Drop Down menus in mind.
 
-![image](https://user-images.githubusercontent.com/22646751/156557353-d5c8ab9d-5a67-4a35-9228-80f7c66bdaf1.png)
+![image](https://user-images.githubusercontent.com/22646751/158925562-689827d1-c589-4177-beeb-14f9d4ebb944.png)
+
+Drop Down Menus (Scroll Bar)
+1) Attach to the Viewport "ScrollBlock.cs"
+2) Attach to the Scrollbar, "ScrollbarReceiver.cs", be sure to check true for "Is Scrollbar Instanced"
+3) Assign Inspector objects
+
+![image](https://user-images.githubusercontent.com/22646751/158925701-0c3fe9fc-4170-407c-9490-336b457e7313.png)
+
+Sliders
+1) On the gameobject with the "Slider" component attached, attach "SliderReceiver.cs"
+2) Assign Inspector Objects
+
+![image](https://user-images.githubusercontent.com/22646751/158925646-63250a7b-0a26-49bb-8235-c220bf748fae.png)
