@@ -49,3 +49,7 @@ Sliders
 2) Assign Inspector Objects
 
 ![image](https://user-images.githubusercontent.com/22646751/158925646-63250a7b-0a26-49bb-8235-c220bf748fae.png)
+
+------------
+
+As a reminder, if you are using Steamworks and Rewired, you must load up Steamworks, then Rewired, and then once Rewired is loaded, set the CursorController gameobject to active.  If you are not using Steamworks, set Rewired to active first, then set CursorController to active after.
