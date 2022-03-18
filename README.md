@@ -3,6 +3,8 @@
 This Github Repo extends an existing Unity Asset, please purchase here: https://assetstore.unity.com/packages/tools/gui/cursor-controller-pro-161628
 This Github Repo extends the existing Unity Asset to work in conjunction with Rewired, however, it can easily be modiifed to work with other input systems or with Unity's default input system.  I will not help you with converting your code to work with other systems.  If you encounter a bug, please let me know.
 
+Please note, InputFields do not work yet, I do plan to add this as an extended feature.  This extension was created with only one user controlling the screen in mind.  I do not have plans at the moment to update this extension to work with multiple cursors.  This extension, however, can be the basis for working with multiple cursors, however, I'll have to leave figuring out that logic to your own.
+
 This asset extension is free to use as long as credit is given per the provided License agreement.
 
 Now that formalities are done with, here is how to use the extension.
