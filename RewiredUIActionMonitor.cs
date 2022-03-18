@@ -1,17 +1,13 @@
 /*MIT License
-
 Copyright (c) [2022] [Michael Lackey]
-
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights
 to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 copies of the Software, and to permit persons to whom the Software is
 furnished to do so, subject to the following conditions:
-
 The above copyright notice and this permission notice shall be included in all
 copies or substantial portions of the Software.
-
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -21,7 +17,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.*/
 
 using Rewired;
-using YOURNAME.Client.REFERENCE; // Static Key Reference Class
+using YOURNAME.Client.REFERENCE;   //Static Key Reference Class
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -111,11 +107,6 @@ namespace SlimUI.CursorControllerPro
                     {
                         if (m_SliderObject != null)
                         {
-                            if (m_Player.GetAxis(MasterKeyReferences.ActionUI_ScrollHorizontal) > 0)
-                                Debug.Log("Increasing Slider");
-                            if (m_Player.GetAxis(MasterKeyReferences.ActionUI_ScrollHorizontal) < 0)
-                                Debug.Log("Decreasing Slider");
-
                             if (m_SceneScrollTarget != null)
                             {
                                 if (Mathf.Abs(m_Player.GetAxis(MasterKeyReferences.ActionUI_ScrollVertical)) >= .7f && Mathf.Abs(m_Player.GetAxis(MasterKeyReferences.ActionUI_ScrollHorizontal)) < .2)
@@ -155,7 +146,7 @@ namespace SlimUI.CursorControllerPro
                                     ActionType = CurrentActionType.SliderInteract;
                                 }
                             }
-                            m_SceneScrollTarget.value += m_Player.GetAxis(MasterKeyReferences.ActionUI_ScrollVertical) / 20;
+                            m_SceneScrollTarget.value += m_Player.GetAxis(MasterKeyReferences.ActionUI_ScrollVertical) / 12;
                         }
                         break;
                     }
@@ -164,7 +155,7 @@ namespace SlimUI.CursorControllerPro
                     {
                         if (InteractableScrollTarget != null)
                         {
-                            InteractableScrollTarget.value += m_Player.GetAxis(MasterKeyReferences.ActionUI_ScrollVertical) / 20;
+                            InteractableScrollTarget.value += m_Player.GetAxis(MasterKeyReferences.ActionUI_ScrollVertical) / 12;
                         }
                         break;
                     }
